@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centro{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centro .estrelas {
+  position: relative;
+  height: 90px;
+  /* background-color: beige; */
+  /* ^^des-comenta porque deu muio trabalho pra arrumar kk */
+  /* transform: translate(-50%, -50%); */
+}
+
+.estrelas input {
+  display: none;
+}
+
+.estrelas label {
+  transform: translateY(-20%);
+  float: right;
+  font-size: 100px;
+  color: lightgray;
+  text-shadow: 2px 3px blue;
+}
+
+.estrelas label::before {
+  -webkit-text-stroke: 1px black;
+  content: "*";
+}
+
+.estrelas input:checked ~ label {
+  color: yellow;
+  text-shadow: 2px 3px orangered;
+}
+
+.estrelas:not(:checked) > label:hover,
+.estrelas:not(:checked) > label:hover ~ label {
+  color: yellow;
+  text-shadow: 2px 3px orangered;
+}
+
+.estrelas .resultado::before {
+  position: absolute;
+  text-transform: uppercase;
+  content: "";
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 0;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.estrelas input:checked ~ .resultado::before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#um:checked ~ .resultado::before {
+  content: "Pessimo!";
+}
+
+#dois:checked ~ .resultado::before {
+  content: "Ruim";
+}
+
+#tres:checked ~ .resultado::before {
+  content: "Ok...";
+}
+
+#quatro:checked ~ .resultado::before {
+  content: "Bom";
+}
+
+#cinco:checked ~ .resultado::before {
+  content: "Perfeito!";
+}
